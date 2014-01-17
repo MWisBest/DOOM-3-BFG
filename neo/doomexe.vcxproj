@@ -32,16 +32,19 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
     <WholeProgramOptimization>false</WholeProgramOptimization>
+    <PlatformToolset>v110</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Retail|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
     <WholeProgramOptimization>false</WholeProgramOptimization>
+    <PlatformToolset>v110</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -112,6 +115,12 @@
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Retail|Win32'">NDEBUG;%(PreprocessorDefinitions);ID_RETAIL</PreprocessorDefinitions>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Retail|Win32'">/D "ID_WIN_X86_SSE2_INTRIN" %(AdditionalOptions)</AdditionalOptions>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">/D "ID_WIN_X86_SSE2_INTRIN" %(AdditionalOptions)</AdditionalOptions>
+      <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Speed</FavorSizeOrSpeed>
+      <OmitFramePointers Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</OmitFramePointers>
+      <EnableEnhancedInstructionSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='Retail|Win32'">Speed</FavorSizeOrSpeed>
+      <OmitFramePointers Condition="'$(Configuration)|$(Platform)'=='Retail|Win32'">true</OmitFramePointers>
+      <EnableEnhancedInstructionSet Condition="'$(Configuration)|$(Platform)'=='Retail|Win32'">StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
     </ClCompile>
     <ImageXex />
     <ImageXex />
