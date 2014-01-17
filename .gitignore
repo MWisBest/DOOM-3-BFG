@@ -1,0 +1,17 @@
+build/
+*.dll
+*.exe
+*.exe.*
+*.idb
+*.ilk
+*.ipch
+*.lastbuildstate
+*.log
+*.obj
+*.opensdf
+*.pdb
+*.rc
+*.sdf
+*.suo
+*.tlog
+*.vcxproj.user

@@ -110,6 +110,8 @@
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(DXSDK_DIR)\Include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Retail|Win32'">$(DXSDK_DIR)\Include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Retail|Win32'">NDEBUG;%(PreprocessorDefinitions);ID_RETAIL</PreprocessorDefinitions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Retail|Win32'">/D "ID_WIN_X86_SSE2_INTRIN" %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">/D "ID_WIN_X86_SSE2_INTRIN" %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <ImageXex />
     <ImageXex />
