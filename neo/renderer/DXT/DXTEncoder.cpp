@@ -41,7 +41,9 @@ Contains the DxtEncoder implementation.
 #define C565_5_MASK				0xF8	// 0xFF minus last three bits
 #define C565_6_MASK				0xFC	// 0xFF minus last two bits
 
-#define NVIDIA_7X_HARDWARE_BUG_FIX		// keep the DXT5 colors sorted as: max, min
+/* Uncomment the NVIDIA_7X_HARDWARE_BUG_FIX define if you plan
+ * on supporting NVIDIA hardware earlier than 8000-series(?) */
+//#define NVIDIA_7X_HARDWARE_BUG_FIX		// keep the DXT5 colors sorted as: max, min
 
 typedef uint16	word;
 typedef uint32	dword;

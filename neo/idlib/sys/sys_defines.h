@@ -52,20 +52,20 @@ If you have questions concerning this license or the applicable additional terms
 	#if !defined( _MANAGED )
 		#if !defined( _WIN64 )
 			#define ID_WIN_X86_ASM
-			#define ID_WIN_X86_MMX_ASM
-			#define ID_WIN_X86_MMX_INTRIN
-			#define ID_WIN_X86_SSE_ASM
+			// #define ID_WIN_X86_MMX_ASM (Unused)
+			// #define ID_WIN_X86_MMX_INTRIN (Unused)
+			// #define ID_WIN_X86_SSE_ASM (Unused)
 			#define ID_WIN_X86_SSE_INTRIN
-			#define ID_WIN_X86_SSE2_ASM
+			// #define ID_WIN_X86_SSE2_ASM (Unused)
 			#define ID_WIN_X86_SSE2_INTRIN
 			// the 32 bit build is now as close to the console builds as possible
-			#define ID_CONSOLE
+			// #define ID_CONSOLE (Unused)
 		#else
 			#define ID_PC_WIN64
-			#define ID_WIN_X86_MMX_INTRIN
+			// #define ID_WIN_X86_MMX_INTRIN (Unused)
 			#define ID_WIN_X86_SSE_INTRIN
 			#define ID_WIN_X86_SSE2_INTRIN
-			#define ID_WIN_X86_SSE3_INTRIN
+			// #define ID_WIN_X86_SSE3_INTRIN (Unused)
 		#endif
 	#endif
 

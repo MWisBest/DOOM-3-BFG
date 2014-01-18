@@ -44,7 +44,7 @@ const float LCP_DELTA_FORCE_EPSILON		= 1e-9f;
 #define IGNORE_UNSATISFIABLE_VARIABLES
 
 
-#if defined( ID_WIN_X86_SSE_ASM ) || defined( ID_WIN_X86_SSE_INTRIN )
+#ifdef ID_WIN_X86_SSE_INTRIN
 
 ALIGN16( const __m128 SIMD_SP_zero )							= { 0.0f, 0.0f, 0.0f, 0.0f };
 ALIGN16( const __m128 SIMD_SP_one )								= { 1.0f, 1.0f, 1.0f, 1.0f };
