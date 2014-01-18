@@ -47,7 +47,9 @@ Contains the DxtEncoder implementation for SSE2.
 #define C565_5_MASK				0xF8	// 0xFF minus last three bits
 #define C565_6_MASK				0xFC	// 0xFF minus last two bits
 
-#define NVIDIA_7X_HARDWARE_BUG_FIX		// keep the DXT5 colors sorted as: max, min
+/* Uncomment the NVIDIA_7X_HARDWARE_BUG_FIX define if you plan
+* on supporting NVIDIA hardware earlier than 8000-series(?) */
+//#define NVIDIA_7X_HARDWARE_BUG_FIX		// keep the DXT5 colors sorted as: max, min
 
 #if !defined( R_SHUFFLE_D )
 #define R_SHUFFLE_D( x, y, z, w )	(( (w) & 3 ) << 6 | ( (z) & 3 ) << 4 | ( (y) & 3 ) << 2 | ( (x) & 3 ))

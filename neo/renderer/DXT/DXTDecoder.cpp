@@ -237,7 +237,11 @@ idDxtDecoder::DecompressYCoCgDXT5
 ========================
 */
 void idDxtDecoder::DecompressYCoCgDXT5( const byte *inBuf, byte *outBuf, int width, int height ) {
+#ifdef NVIDIA_7X_HARDWARE_BUG_FIX
 	DecompressImageDXT5_nVidia7x( inBuf, outBuf, width, height );
+#else
+	DecompressImageDXT5( inBuf, outBuf, width, height );
+#endif
 	// descale the CoCg values and set the scale factor effectively to 1
 	for ( int i = 0; i < width * height; i++ ) {
 		int scale = ( outBuf[i*4+2] >> 3 ) + 1;
