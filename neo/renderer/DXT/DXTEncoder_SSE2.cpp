@@ -34,7 +34,7 @@ Contains the DxtEncoder implementation for SSE2.
 #include "DXTCodec_local.h"
 #include "DXTCodec.h"
 
-#if defined( ID_WIN_X86_SSE2_INTRIN ) || ( ( defined( ID_WIN_X86_ASM ) || defined( ID_MAC_X86_ASM ) ) )
+#if defined( ID_WIN_X86_SSE2_INTRIN ) || defined( ID_WIN_X86_ASM )
 
 //#define TEST_COMPRESSION
 #ifdef TEST_COMPRESSION
@@ -145,7 +145,7 @@ paramO:	colorBlock	- 4*4 output tile, 4 bytes per pixel
 ========================
 */
 ID_INLINE void idDxtEncoder::ExtractBlock_SSE2( const byte * inPtr, int width, byte * colorBlock ) const {
-#if ( defined( ID_WIN_X86_ASM ) || defined( ID_MAC_X86_ASM ) )
+#ifdef ID_WIN_X86_ASM
 	__asm {
 		mov			esi, inPtr
 		mov			edi, colorBlock
@@ -183,7 +183,7 @@ paramO:	maxColor	- Max 4 byte output color
 ========================
 */
 ID_INLINE void idDxtEncoder::GetMinMaxBBox_SSE2( const byte * colorBlock, byte * minColor, byte * maxColor ) const {
-#if ( defined( ID_WIN_X86_ASM ) || defined( ID_MAC_X86_ASM ) )
+#ifdef ID_WIN_X86_ASM
 	__asm {
 		mov			eax, colorBlock
 		mov			esi, minColor
@@ -246,7 +246,7 @@ idDxtEncoder::InsetColorsBBox_SSE2
 ========================
 */
 ID_INLINE void idDxtEncoder::InsetColorsBBox_SSE2( byte * minColor, byte * maxColor ) const {
-#if ( defined( ID_WIN_X86_ASM ) || defined( ID_MAC_X86_ASM ) )
+#ifdef ID_WIN_X86_ASM
 	__asm {
 		mov			esi, minColor
 		mov			edi, maxColor
@@ -299,7 +299,7 @@ return: 4 byte color index block
 ========================
 */
 void idDxtEncoder::EmitColorIndices_SSE2( const byte * colorBlock, const byte * minColor_, const byte * maxColor_ ) {
-#if ( defined( ID_WIN_X86_ASM ) || defined( ID_MAC_X86_ASM ) )
+#ifdef ID_WIN_X86_ASM
 	ALIGN16( byte color0[16] );
 	ALIGN16( byte color1[16] );
 	ALIGN16( byte color2[16] );
@@ -607,7 +607,7 @@ return: 4 byte color index block
 ========================
 */
 void idDxtEncoder::EmitColorAlphaIndices_SSE2( const byte *colorBlock, const byte *minColor_, const byte *maxColor_ ) {
-#if ( defined( ID_WIN_X86_ASM ) || defined( ID_MAC_X86_ASM ) )
+#ifdef ID_WIN_X86_ASM
 	ALIGN16( byte color0[16] );
 	ALIGN16( byte color1[16] );
 	ALIGN16( byte color2[16] );
@@ -915,7 +915,7 @@ return: 4 byte color index block
 ========================
 */
 void idDxtEncoder::EmitCoCgIndices_SSE2( const byte *colorBlock, const byte *minColor_, const byte *maxColor_ ) {
-#if ( defined( ID_WIN_X86_ASM ) || defined( ID_MAC_X86_ASM ) )
+#ifdef ID_WIN_X86_ASM
 	ALIGN16( byte color0[16] );
 	ALIGN16( byte color1[16] );
 	ALIGN16( byte color2[16] );
@@ -1190,7 +1190,7 @@ paramO:	maxAlpha	- Max alpha found
 ========================
 */
 void idDxtEncoder::EmitAlphaIndices_SSE2( const byte *block, const int minAlpha_, const int maxAlpha_ ) {
-#if ( defined( ID_WIN_X86_ASM ) || defined( ID_MAC_X86_ASM ) )
+#ifdef ID_WIN_X86_ASM
 	assert( maxAlpha_ >= minAlpha_ );
 
 	byte *outPtr = outData;
@@ -1464,7 +1464,7 @@ idDxtEncoder::EmitAlphaIndices_SSE2
 ========================
 */
 void idDxtEncoder::EmitAlphaIndices_SSE2( const byte *block, const int channelBitOffset, const int minAlpha_, const int maxAlpha_ ) {
-#if ( defined( ID_WIN_X86_ASM ) || defined( ID_MAC_X86_ASM ) )
+#ifdef ID_WIN_X86_ASM
 	assert( maxAlpha_ >= minAlpha_ );
 
 	byte *outPtr = outData;
@@ -1929,7 +1929,7 @@ idDxtEncoder::ScaleYCoCg_SSE2
 ========================
 */
 ID_INLINE void idDxtEncoder::ScaleYCoCg_SSE2( byte *colorBlock, byte *minColor, byte *maxColor ) const {
-#if ( defined( ID_WIN_X86_ASM ) || defined( ID_MAC_X86_ASM ) )
+#ifdef ID_WIN_X86_ASM
 	__asm {
 		mov			esi, colorBlock
 		mov			edx, minColor
@@ -2129,7 +2129,7 @@ idDxtEncoder::InsetYCoCgBBox_SSE2
 ========================
 */
 ID_INLINE void idDxtEncoder::InsetYCoCgBBox_SSE2( byte *minColor, byte *maxColor ) const {
-#if ( defined( ID_WIN_X86_ASM ) || defined( ID_MAC_X86_ASM ) )
+#ifdef ID_WIN_X86_ASM
 	__asm {
 		mov			esi, minColor
 		mov			edi, maxColor
@@ -2209,7 +2209,7 @@ return: diagonal to use
 ========================
 */
 ID_INLINE void idDxtEncoder::SelectYCoCgDiagonal_SSE2( const byte *colorBlock, byte *minColor, byte *maxColor ) const {
-#if ( defined( ID_WIN_X86_ASM ) || defined( ID_MAC_X86_ASM ) )
+#ifdef ID_WIN_X86_ASM
 	__asm {
 		mov			esi, colorBlock
 		mov			edx, minColor
@@ -2422,7 +2422,7 @@ paramO:	maxGreen	- Maximal normal Y found
 ========================
 */
 void idDxtEncoder::EmitGreenIndices_SSE2( const byte *block, const int channelBitOffset, const int minGreen, const int maxGreen ) {
-#if ( defined( ID_WIN_X86_ASM ) || defined( ID_MAC_X86_ASM ) )
+#ifdef ID_WIN_X86_ASM
 	assert( maxGreen >= minGreen );
 
 	byte *outPtr = outData;
@@ -2636,7 +2636,7 @@ idDxtEncoder::InsetNormalsBBoxDXT5_SSE2
 ========================
 */
 void idDxtEncoder::InsetNormalsBBoxDXT5_SSE2( byte *minNormal, byte *maxNormal ) const {
-#if ( defined( ID_WIN_X86_ASM ) || defined( ID_MAC_X86_ASM ) )
+#ifdef ID_WIN_X86_ASM
 	__asm {
         mov         esi, minNormal
         mov         edi, maxNormal

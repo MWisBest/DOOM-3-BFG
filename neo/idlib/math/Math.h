@@ -419,7 +419,7 @@ public:
 	static const float			FLT_EPSILON;				// smallest positive number such that 1.0+FLT_EPSILON != 1.0
 	static const float			FLT_SMALLEST_NON_DENORMAL;	// smallest non-denormal 32-bit floating point value
 
-#if defined( ID_WIN_X86_SSE_INTRIN )
+#ifdef ID_WIN_X86_SSE_INTRIN
 	static const __m128				SIMD_SP_zero;
 	static const __m128				SIMD_SP_255;
 	static const __m128				SIMD_SP_min_char;
@@ -623,7 +623,7 @@ idMath::SinCos
 ========================
 */
 ID_INLINE void idMath::SinCos( float a, float &s, float &c ) {
-#if defined( ID_WIN_X86_ASM )
+#ifdef ID_WIN_X86_ASM
 	_asm {
 		fld		a
 		fsincos

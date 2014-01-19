@@ -858,7 +858,7 @@ static void R_CreateShadowVolumeTriangles( triIndex_t *__restrict shadowIndices,
 
 	numShadowIndexesTotal = numShadowIndices;
 
-#if defined( ID_WIN_X86_SSE2_INTRIN )
+#ifdef ID_WIN_X86_SSE2_INTRIN
 	_mm_sfence();
 #endif
 
@@ -1033,7 +1033,7 @@ void R_CreateLightTriangles( triIndex_t * __restrict lightIndices, triIndex_t * 
 
 	numLightIndicesTotal = numLightIndices;
 
-#if defined( ID_WIN_X86_SSE2_INTRIN )
+#ifdef ID_WIN_X86_SSE2_INTRIN
 	_mm_sfence();
 #endif
 
