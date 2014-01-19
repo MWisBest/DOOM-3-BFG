@@ -41,9 +41,9 @@ If you have questions concerning this license or the applicable additional terms
 #undef ID_PC
 #undef ID_PC_WIN
 #undef ID_PC_WIN64
-#undef ID_CONSOLE
+// #undef ID_CONSOLE (Unused)
 #undef ID_WIN32
-#undef ID_LITTLE_ENDIAN
+// #undef ID_LITTLE_ENDIAN (Unused)
 
 #if defined(_WIN32)
 	// _WIN32 always defined
@@ -63,8 +63,8 @@ If you have questions concerning this license or the applicable additional terms
 		#else
 			#define ID_PC_WIN64
 			// #define ID_WIN_X86_MMX_INTRIN (Unused)
-			#define ID_WIN_X86_SSE_INTRIN
-			#define ID_WIN_X86_SSE2_INTRIN
+			//#define ID_WIN_X86_SSE_INTRIN (Not Supported (yet?!))
+			//#define ID_WIN_X86_SSE2_INTRIN (Not Supported (yet?!))
 			// #define ID_WIN_X86_SSE3_INTRIN (Unused)
 		#endif
 	#endif
@@ -72,7 +72,7 @@ If you have questions concerning this license or the applicable additional terms
 	#define ID_PC
 	#define ID_PC_WIN
 	#define ID_WIN32
-	#define ID_LITTLE_ENDIAN
+	// #define ID_LITTLE_ENDIAN (Unused)
 #else
 #error Unknown Platform
 #endif
@@ -162,7 +162,7 @@ bulk of the codebase, so it is the best place for analyze pragmas.
 ================================================================================================
 */
 
-#if defined( ID_WIN32 )
+#ifdef ID_WIN32
 
 // disable some /analyze warnings here
 #pragma warning( disable: 6255 )	// warning C6255: _alloca indicates failure by raising a stack overflow exception. Consider using _malloca instead. (Note: _malloca requires _freea.)

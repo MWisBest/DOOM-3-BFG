@@ -296,7 +296,7 @@ define_t *idParser::DefineFromString( const char *string ) {
 	idParser src;
 	define_t *def;
 
-	if ( !src.LoadMemory(string, strlen(string), "*defineString") ) {
+	if ( !src.LoadMemory(string, (int)strlen(string), "*defineString") ) {
 		return NULL;
 	}
 	// create a define from the source
