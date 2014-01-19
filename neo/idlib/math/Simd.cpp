@@ -125,7 +125,7 @@ idSIMDProcessor *p_simd;
 idSIMDProcessor *p_generic;
 long baseClocks = 0;
 
-
+#ifdef _M_IX86
 #define TIME_TYPE int
 
 #pragma warning(disable : 4731)     // frame pointer register 'ebx' modified by inline assembly code
@@ -149,6 +149,18 @@ long saved_ebx = 0;
 	__asm mov ebx, saved_ebx				\
 	__asm xor eax, eax						\
 	__asm cpuid
+
+#else // not _M_IX86
+// FIXME: Impl?
+#define TIME_TYPE int
+
+#define StartRecordTime( start ) \
+	start = 0;
+
+#define StopRecordTime( end ) \
+	end = 1;
+
+#endif
 
 
 #define GetBest( start, end, best )			\

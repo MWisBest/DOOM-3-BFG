@@ -2272,7 +2272,7 @@ void idDeclLocal::MakeDefault() {
 	self->FreeData();
 
 	// parse
-	self->Parse( defaultText, strlen( defaultText ), false );
+	self->Parse( defaultText, (int)strlen( defaultText ), false );
 
 	// we could still eventually hit the recursion if we have enough Error() calls inside Parse...
 	--recursionLevel;

@@ -2970,7 +2970,7 @@ void idParser::GetStringFromMarker( idStr& out, bool clean ) {
 	
 	// If cleaning then reparse
 	if ( clean ) {	
-		idParser temp( marker_p, strlen( marker_p ), "temp", flags );
+		idParser temp( marker_p, (int)strlen( marker_p ), "temp", flags );
 		idToken token;
 		while ( temp.ReadToken ( &token ) ) {
 			out += token;

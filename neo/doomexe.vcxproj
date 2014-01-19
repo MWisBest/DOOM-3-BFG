@@ -165,6 +165,7 @@
       <GenerateDebugInformation Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateDebugInformation>
       <GenerateDebugInformation Condition="'$(Configuration)|$(Platform)'=='Retail|Win32'">true</GenerateDebugInformation>
       <GenerateDebugInformation Condition="'$(Configuration)|$(Platform)'=='Retail|x64'">true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(DXSDK_DIR)\Lib\x64\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <Deploy />
     <Deploy />
@@ -179,7 +180,7 @@
     </ClCompile>
     <ClCompile>
       <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</TreatWarningAsError>
-      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</TreatWarningAsError>
       <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='Retail|Win32'">true</TreatWarningAsError>
       <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='Retail|x64'">true</TreatWarningAsError>
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(DXSDK_DIR)\Include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -200,6 +201,7 @@
       <EnableEnhancedInstructionSet Condition="'$(Configuration)|$(Platform)'=='Retail|Win32'">StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
       <EnableEnhancedInstructionSet Condition="'$(Configuration)|$(Platform)'=='Retail|x64'">StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
       <UndefinePreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">_USE_32BIT_TIME_T</UndefinePreprocessorDefinitions>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Level3</WarningLevel>
     </ClCompile>
     <ImageXex />
     <ImageXex />

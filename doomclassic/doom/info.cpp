@@ -54,7 +54,7 @@ const char * const sprnames[NUMSPRITES + 1] = {
     "POL3","POL1","POL6","GOR2","GOR3","GOR4","GOR5","SMIT","COL1","COL2",
     "COL3","COL4","CAND","CBRA","COL6","TRE1","TRE2","ELEC","CEYE","FSKU",
     "COL5","TBLU","TGRN","TRED","SMBT","SMGT","SMRT","HDB1","HDB2","HDB3",
-    "HDB4","HDB5","HDB6","POB1","POB2","BRS1","TLMP","TLP2",(const char * const)NULL
+    "HDB4","HDB5","HDB6","POB1","POB2","BRS1","TLMP","TLP2",(const char*)NULL
 };
 
 extern "C"

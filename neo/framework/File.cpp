@@ -542,7 +542,7 @@ int idFile::WriteBool( const bool value ) {
  =================
  */
 int idFile::WriteString( const char *value ) {
-	int len = strlen( value );
+	int len = (int)strlen( value );
 	WriteInt( len );
     return Write( value, len );
 }

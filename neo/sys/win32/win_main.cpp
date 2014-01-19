@@ -985,7 +985,7 @@ void Sys_GenerateEvents() {
 		char	*b;
 		int		len;
 
-		len = strlen( s ) + 1;
+		len = (int)strlen( s ) + 1;
 		b = (char *)Mem_Alloc( len, TAG_EVENTS );
 		strcpy( b, s );
 		Sys_QueEvent( SE_CONSOLE, 0, 0, len, b, 0 );
@@ -1264,34 +1264,6 @@ void Win_Frame() {
 	}
 }
 
-extern "C" { void _chkstk( int size ); };
-void clrstk();
-
-/*
-====================
-TestChkStk
-====================
-*/
-void TestChkStk() {
-	int		buffer[0x1000];
-
-	buffer[0] = 1;
-}
-
-/*
-====================
-HackChkStk
-====================
-*/
-void HackChkStk() {
-	DWORD	old;
-	VirtualProtect( _chkstk, 6, PAGE_EXECUTE_READWRITE, &old );
-	*(byte *)_chkstk = 0xe9;
-	*(int *)((int)_chkstk+1) = (int)clrstk - (int)_chkstk - 5;
-
-	TestChkStk();
-}
-
 /*
 ====================
 GetExceptionCodeInfo
@@ -1371,6 +1343,8 @@ void EmailCrashReport( LPSTR messageText ) {
 	}
 }
 
+#ifndef _WIN64
+
 int Sys_FPU_PrintStateFlags( char *ptr, int ctrl, int stat, int tags, int inof, int inse, int opof, int opse );
 
 /*
@@ -1443,6 +1417,7 @@ EXCEPTION_DISPOSITION __cdecl _except_handler( struct _EXCEPTION_RECORD *Excepti
     // Tell the OS to restart the faulting instruction
     return ExceptionContinueExecution;
 }
+#endif
 
 #define TEST_FPU_EXCEPTIONS	/*	FPU_EXCEPTION_INVALID_OPERATION |		*/	\
 							/*	FPU_EXCEPTION_DENORMALIZED_OPERAND |	*/	\
@@ -1547,42 +1522,6 @@ int WINAPI WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLin
 
 	// never gets here
 	return 0;
-}
-
-/*
-====================
-clrstk
-
-I tried to get the run time to call this at every function entry, but
-====================
-*/
-static int	parmBytes;
-__declspec( naked ) void clrstk() {
-	// eax = bytes to add to stack
-	__asm {
-		mov		[parmBytes],eax
-        neg     eax                     ; compute new stack pointer in eax
-        add     eax,esp
-        add     eax,4
-        xchg    eax,esp
-        mov     eax,dword ptr [eax]		; copy the return address
-        push    eax
-        
-        ; clear to zero
-        push	edi
-        push	ecx
-        mov		edi,esp
-        add		edi,12
-        mov		ecx,[parmBytes]
-		shr		ecx,2
-        xor		eax,eax
-		cld
-        rep	stosd
-        pop		ecx
-        pop		edi
-        
-        ret
-	}
 }
 
 /*

@@ -84,7 +84,11 @@ int	DOOMPORT = 1002;	// DHM - Nerve :: On original XBox, ports 1000 - 1255 saved
 
 
 unsigned long GetServerIP() {
+#ifndef _WIN64
 	return ::g->sendaddress[::g->doomcom.consoleplayer].sin_addr.s_addr;
+#else
+	return 0;
+#endif
 }
 
 void	(*netget) (void);
@@ -99,7 +103,9 @@ int UDPsocket (void)
 	int	s;
 
 	// allocate a socket
+#ifndef _WIN64
 	s = socket (AF_INET, SOCK_DGRAM, IPPROTO_UDP);
+#endif
 	if ( !IsValidSocket( s ) ) {
 		int err = GetLastSocketError();
 		I_Error( "can't create socket, error %d", err );

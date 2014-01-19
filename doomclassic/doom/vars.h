@@ -303,7 +303,9 @@ InputEvent joyEvents[18];
 //  i_net_xbox.vars begin // 
 int			sendsocket;
 int			insocket;
+#ifndef _WIN64
 struct	sockaddr_in	sendaddress[MAXNETNODES];
+#endif
 // i_net_xbox.vars end // 
 //  i_system.vars begin // 
 int	mb_used ;

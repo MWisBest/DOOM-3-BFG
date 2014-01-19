@@ -777,7 +777,7 @@ void idVarDef::PrintInfo( idFile *file, int instructionPointer ) const {
 			switch( etype ) {
 			case ev_string :
 				file->Printf( "\"" );
-				len = strlen( value.stringPtr );
+				len = (int)strlen( value.stringPtr );
 				ch = value.stringPtr;
 				for( i = 0; i < len; i++, ch++ ) {
 					if ( idStr::CharIsPrintable( *ch ) ) {
@@ -899,7 +899,7 @@ idScriptObject::Save
 ================
 */
 void idScriptObject::Save( idSaveGame *savefile ) const {
-	size_t size;
+	int size;
 
 	if ( type == &type_object && data == NULL ) {
 		// Write empty string for uninitialized object

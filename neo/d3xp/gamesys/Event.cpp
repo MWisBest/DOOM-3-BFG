@@ -757,7 +757,7 @@ void idEvent::Save( idSaveGame *savefile ) {
 		savefile->WriteString( event->eventdef->GetName() );
 		savefile->WriteString( event->typeinfo->classname );
 		savefile->WriteObject( event->object );
-		savefile->WriteInt( event->eventdef->GetArgSize() );
+		savefile->WriteInt( (int)event->eventdef->GetArgSize() );
 		format = event->eventdef->GetArgFormat();
 		for ( i = 0, size = 0; i < event->eventdef->GetNumArgs(); ++i) {
 			dataPtr = &event->data[ event->eventdef->GetArgOffset( i ) ];
@@ -808,8 +808,8 @@ void idEvent::Save( idSaveGame *savefile ) {
 		savefile->WriteString( event->eventdef->GetName() );
 		savefile->WriteString( event->typeinfo->classname );
 		savefile->WriteObject( event->object );
-		savefile->WriteInt( event->eventdef->GetArgSize() );
-		savefile->Write( event->data, event->eventdef->GetArgSize() );
+		savefile->WriteInt( (int)event->eventdef->GetArgSize() );
+		savefile->Write( event->data, (int)event->eventdef->GetArgSize() );
 
 		event = event->eventNode.Next();
 	}

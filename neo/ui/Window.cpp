@@ -3266,7 +3266,7 @@ idWindow::WriteString
 ===============
 */
 void idWindow::WriteSaveGameString( const char *string, idFile *savefile ) {
-	int len = strlen( string );
+	int len = (int)strlen( string );
 
 	savefile->Write( &len, sizeof( len ) );
 	savefile->Write( string, len );

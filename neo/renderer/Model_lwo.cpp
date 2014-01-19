@@ -1378,7 +1378,7 @@ char *sgetS0( unsigned char **bp )
 
    if ( flen == FLEN_ERROR ) return NULL;
 
-   len = strlen( (const char*)buf ) + 1;
+   len = (int)strlen( (const char*)buf ) + 1;
    if ( len == 1 ) {
       flen += 2;
       (*bp) += 2;

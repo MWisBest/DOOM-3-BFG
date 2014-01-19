@@ -93,9 +93,11 @@ struct ExpansionData {
 
 namespace DoomLib
 {
+#ifndef _WIN64
 	typedef int ( *RecvFunc)( char* buff, DWORD *numRecv );
 	typedef int ( *SendFunc)( const char* buff, DWORD size, sockaddr_in *target, int toNode );
 	typedef int ( *SendRemoteFunc)();
+#endif
 
 	void InitGlobals( void *ptr = NULL );
 	void InitGame( int argc, char ** argv );
@@ -108,8 +110,10 @@ namespace DoomLib
 	void Draw();
 	void Shutdown();
 
+#ifndef _WIN64
 	void SetNetworking( RecvFunc rf, SendFunc sf, SendRemoteFunc sendRemote );
-	
+#endif
+
 	void SetPlayer( int id );
 	int GetPlayer();
 
@@ -126,9 +130,11 @@ namespace DoomLib
 
 	void RunSound();
 
+#ifndef _WIN64
 	extern RecvFunc Recv;
 	extern SendFunc Send;
 	extern SendRemoteFunc SendRemote;
+#endif
 
 	extern void* 	(*Z_Malloc)( int size, int tag, void* user );
 	extern void 	(*Z_FreeTag)(int lowtag );

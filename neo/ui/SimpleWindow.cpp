@@ -360,7 +360,7 @@ void idSimpleWindow::WriteToSaveGame( idFile *savefile ) {
 	int stringLen;
 
 	if ( background ) {
-		stringLen = strlen( background->GetName() );
+		stringLen = (int)strlen( background->GetName() );
 		savefile->Write( &stringLen, sizeof( stringLen ) );
 		savefile->Write( background->GetName(), stringLen );
 	} else {
