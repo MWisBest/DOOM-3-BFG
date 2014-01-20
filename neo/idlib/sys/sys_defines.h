@@ -63,8 +63,8 @@ If you have questions concerning this license or the applicable additional terms
 		#else
 			#define ID_PC_WIN64
 			// #define ID_WIN_X86_MMX_INTRIN (Unused)
-			//#define ID_WIN_X86_SSE_INTRIN (Not Supported (yet?!))
-			//#define ID_WIN_X86_SSE2_INTRIN (Not Supported (yet?!))
+			#define ID_WIN_X86_SSE_INTRIN
+			#define ID_WIN_X86_SSE2_INTRIN
 			// #define ID_WIN_X86_SSE3_INTRIN (Unused)
 		#endif
 	#endif
