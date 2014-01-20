@@ -46,7 +46,7 @@ void * Mem_Alloc16( const size_t size, const memTag_t tag ) {
 	if ( !size ) {
 		return NULL;
 	}
-	const int paddedSize = ( size + 15 ) & ~15;
+	const size_t paddedSize = ( size + 15 ) & ~15;
 	return _aligned_malloc( paddedSize, 16 );
 }
 

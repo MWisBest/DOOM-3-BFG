@@ -33,7 +33,7 @@ If you have questions concerning this license or the applicable additional terms
 
 idCVar r_skipStripDeadCode( "r_skipStripDeadCode", "0", CVAR_BOOL, "Skip stripping dead code" );
 idCVar r_useUniformArrays( "r_useUniformArrays", "1", CVAR_BOOL, "" );
-
+idCVar r_displayGLSLCompilerMessages( "r_displayGLSLCompilerMessages", "1", CVAR_BOOL | CVAR_ARCHIVE, "Show info messages the GPU driver outputs when compiling the shaders" );
 
 #define VERTEX_UNIFORM_ARRAY_NAME				"_va_"
 #define FRAGMENT_UNIFORM_ARRAY_NAME				"_fa_"
@@ -1032,7 +1032,7 @@ GLuint idRenderProgManager::LoadGLSLShader( GLenum target, const char * name, id
 			if ( strstr( infoLog.Ptr(), "successfully compiled to run on hardware" ) != NULL || 
 					strstr( infoLog.Ptr(), "No errors." ) != NULL ) {
 				//idLib::Printf( "%s program %s from %s compiled to run on hardware\n", typeName, GetName(), GetFileName() );
-			} else {
+			} else if ( r_displayGLSLCompilerMessages.GetBool() ) {
 				idLib::Printf( "While compiling %s program %s\n", ( target == GL_FRAGMENT_SHADER ) ? "fragment" : "vertex" , inFile.c_str() );
 
 				const char separator = '\n';

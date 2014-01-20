@@ -569,7 +569,7 @@ Sys_ListFiles
 int Sys_ListFiles( const char *directory, const char *extension, idStrList &list ) {
 	idStr		search;
 	struct _finddata_t findinfo;
-	int			findhandle;
+	intptr_t	findhandle;
 	int			flag;
 
 	if ( !extension) {
@@ -846,7 +846,7 @@ DLL Loading
 Sys_DLL_Load
 =====================
 */
-int Sys_DLL_Load( const char *dllName ) {
+intptr_t Sys_DLL_Load( const char *dllName ) {
 	HINSTANCE libHandle = LoadLibrary( dllName );
 	return (int)libHandle;
 }
@@ -856,7 +856,7 @@ int Sys_DLL_Load( const char *dllName ) {
 Sys_DLL_GetProcAddress
 =====================
 */
-void *Sys_DLL_GetProcAddress( int dllHandle, const char *procName ) {
+void *Sys_DLL_GetProcAddress( intptr_t dllHandle, const char *procName ) {
 	return GetProcAddress( (HINSTANCE)dllHandle, procName ); 
 }
 
@@ -865,7 +865,7 @@ void *Sys_DLL_GetProcAddress( int dllHandle, const char *procName ) {
 Sys_DLL_Unload
 =====================
 */
-void Sys_DLL_Unload( int dllHandle ) {
+void Sys_DLL_Unload( intptr_t dllHandle ) {
 	if ( !dllHandle ) {
 		return;
 	}

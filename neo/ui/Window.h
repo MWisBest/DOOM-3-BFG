@@ -106,7 +106,7 @@ typedef enum {
 
 typedef struct {
 	wexpOpType_t opType;	
-	int	a, b, c, d;
+	intptr_t a, b, c, d;
 } wexpOp_t;
 
 struct idRegEntry {

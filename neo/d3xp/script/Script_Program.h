@@ -494,6 +494,11 @@ public:
 	idTypeDef									*GetType( idTypeDef &type, bool allocate );
 	idTypeDef									*FindType( const char *name );
 
+private:
+	byte										*ReserveDefMemory( int size );
+	idVarDef									*AllocVarDef( idTypeDef *type, const char *name, idVarDef *scope );
+public:
+
 	idVarDef									*AllocDef( idTypeDef *type, const char *name, idVarDef *scope, bool constant );
 	idVarDef									*GetDef( const idTypeDef *type, const char *name, const idVarDef *scope ) const;
 	void										FreeDef( idVarDef *d, const idVarDef *scope );

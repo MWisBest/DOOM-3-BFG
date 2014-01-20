@@ -713,10 +713,6 @@ void idWeapon::Clear() {
 		gameRenderWorld->FreeLightDef( muzzleFlashHandle );
 		muzzleFlashHandle = -1;
 	}
-	if ( muzzleFlashHandle != -1 ) {
-		gameRenderWorld->FreeLightDef( muzzleFlashHandle );
-		muzzleFlashHandle = -1;
-	}
 	if ( worldMuzzleFlashHandle != -1 ) {
 		gameRenderWorld->FreeLightDef( worldMuzzleFlashHandle );
 		worldMuzzleFlashHandle = -1;

@@ -15,3 +15,12 @@ build/
 *.suo
 *.tlog
 *.vcxproj.user
+base/*.crc
+base/*.resources
+base/classicmusic/
+base/joy_*.cfg
+base/maps/
+base/sound/
+base/video/
+base/strings/
+base/wads/
