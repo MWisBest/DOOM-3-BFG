@@ -159,6 +159,9 @@
       <OmitFramePointers>true</OmitFramePointers>
       <UndefinePreprocessorDefinitions>_USE_32BIT_TIME_T</UndefinePreprocessorDefinitions>
       <WarningLevel>Level3</WarningLevel>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <AdditionalOptions>/favor:AMD64 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Retail|Win32'">
