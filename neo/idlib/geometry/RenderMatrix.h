@@ -150,9 +150,9 @@ private:
 	float					m[16];
 };
 
-extern const idRenderMatrix renderMatrix_identity;
-extern const idRenderMatrix renderMatrix_flipToOpenGL;
-extern const idRenderMatrix renderMatrix_windowSpaceToClipSpace;
+ALIGNTYPE16 extern const idRenderMatrix renderMatrix_identity;
+ALIGNTYPE16 extern const idRenderMatrix renderMatrix_flipToOpenGL;
+ALIGNTYPE16 extern const idRenderMatrix renderMatrix_windowSpaceToClipSpace;
 
 /*
 ========================
