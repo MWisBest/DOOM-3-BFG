@@ -153,7 +153,16 @@
     <ClCompile Include="framework\zlib\deflate.c">
       <Filter>zlib</Filter>
     </ClCompile>
-    <ClCompile Include="framework\zlib\gzio.c">
+    <ClCompile Include="framework\zlib\gzclose.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="framework\zlib\gzlib.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="framework\zlib\gzread.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="framework\zlib\gzwrite.c">
       <Filter>zlib</Filter>
     </ClCompile>
     <ClCompile Include="framework\zlib\infback.c">

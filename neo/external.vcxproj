@@ -31,7 +31,10 @@
     <ClCompile Include="framework\zlib\compress.c" />
     <ClCompile Include="framework\zlib\crc32.c" />
     <ClCompile Include="framework\zlib\deflate.c" />
-    <ClCompile Include="framework\zlib\gzio.c" />
+    <ClCompile Include="framework\zlib\gzclose.c" />
+    <ClCompile Include="framework\zlib\gzlib.c" />
+    <ClCompile Include="framework\zlib\gzread.c" />
+    <ClCompile Include="framework\zlib\gzwrite.c" />
     <ClCompile Include="framework\zlib\infback.c" />
     <ClCompile Include="framework\zlib\inffast.c" />
     <ClCompile Include="framework\zlib\inflate.c" />
